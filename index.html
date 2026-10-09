@@ -621,12 +621,20 @@
   </footer>
 
   <!-- Script to always force scroll to top on load -->
+<!-- Force Top Scroll Script -->
   <script>
-    if (history.scrollRestoration) {
+    if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    window.scrollTo(0, 0);
+    window.addEventListener('DOMContentLoaded', function() {
+      window.scrollTo(0, 0);
+    });
+    window.addEventListener('load', function() {
+      window.scrollTo(0, 0);
+      setTimeout(function() {
+        window.scrollTo(0, 0);
+      }, 50);
+    });
   </script>
-
 </body>
 </html>
